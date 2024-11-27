@@ -1,0 +1,15 @@
+var sql_update = @"update CompanyData SET name = 'PHP' where id = 1;";
+db.Execute(sql_update);
+
+var sql_insert = @"insert into CompanyData( name , technology)values('tech4', 'python')";
+db.Execute(sql_insert);
+
+var sql_delete = @"delete from CompanyData where id = 3";
+db.Execute(sql_delete);
+
+var sql_select = @"select * from CompanyData;";
+var technologies = db.Query<CompanyData>(sql_select);
+foreach (var t in technologies)
+{
+    Console.WriteLine(t);
+}
